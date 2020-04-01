@@ -2,9 +2,8 @@
 
 const TASK_COUNT = 3;
 
-const createSiteMenuTemplate = () => {
-  return (
-    `<section class="control__btn-wrap">
+const createSiteMenuTemplate = () =>
+  `<section class="control__btn-wrap">
     <input type="radio" name="control" id="control__new-task" class="control__input visually-hidden" />
     <label for="control__new-task" class="control__label control__label--new-task">
     + ADD NEW TASK
@@ -17,13 +16,10 @@ const createSiteMenuTemplate = () => {
     <label for="control__statistic" class="control__label">
     STATISTICS
     </label>
-  </section>`
-  );
-};
+  </section>`;
 
-const createSiteFilterTemplate = () => {
-  return (`
-  <section class="main__filter filter container">
+const createSiteFilterTemplate = () =>
+  `<section class="main__filter filter container">
     <input type="radio" id="filter__all" class="filter__input visually-hidden" name="filter" checked />
     <label for="filter__all" class="filter__label">
       All <span class="filter__all-count">13</span>
@@ -48,13 +44,10 @@ const createSiteFilterTemplate = () => {
     <label for="filter__archive" class="filter__label">
     Archive <span class="filter__archive-count">115</span>
     </label>
-  </section>`
-  );
-};
+  </section>`;
 
-const createBoardTemplate = () => {
-  return (`
-  <section class="board container">
+const createBoardTemplate = () =>
+  `<section class="board container">
     <div class="board__filter-list">
       <a href="#" class="board__filter" data-sort-type="default">SORT BY DEFAULT</a>
       <a href="#" class="board__filter" data-sort-type="date-up">SORT BY DATE up</a>
@@ -62,57 +55,52 @@ const createBoardTemplate = () => {
     </div>
 
     <div class="board__tasks"></div>
-  </section>`
-  );
-};
+  </section>`;
 
-const createTaskTemplate = () => {
-  return (`<article class="card card--black">
-  <div class="card__form">
-    <div class="card__inner">
-      <div class="card__control">
-        <button type="button" class="card__btn card__btn--edit">
-          edit
-        </button>
-        <button type="button" class="card__btn card__btn--archive">
-          archive
-        </button>
-        <button type="button" class="card__btn card__btn--favorites card__btn--disabled">
-          favorites
-        </button>
-      </div>
+const createTaskTemplate = () =>
+  `<article class="card card--black">
+    <div class="card__form">
+      <div class="card__inner">
+        <div class="card__control">
+          <button type="button" class="card__btn card__btn--edit">
+            edit
+          </button>
+          <button type="button" class="card__btn card__btn--archive">
+            archive
+          </button>
+          <button type="button" class="card__btn card__btn--favorites card__btn--disabled">
+            favorites
+          </button>
+        </div>
 
-      <div class="card__color-bar">
-        <svg class="card__color-bar-wave" width="100%" height="10">
-          <use xlink:href="#wave"></use>
-        </svg>
-      </div>
+        <div class="card__color-bar">
+          <svg class="card__color-bar-wave" width="100%" height="10">
+            <use xlink:href="#wave"></use>
+          </svg>
+        </div>
 
-      <div class="card__textarea-wrap">
-        <p class="card__text">Example task with default color.</p>
-      </div>
+        <div class="card__textarea-wrap">
+          <p class="card__text">Example task with default color.</p>
+        </div>
 
-      <div class="card__settings">
-        <div class="card__details">
-          <div class="card__dates">
-            <div class="card__date-deadline">
-              <p class="card__input-deadline-wrap">
-                <span class="card__date">23 September</span>
-                <span class="card__time">16:15</span>
-              </p>
+        <div class="card__settings">
+          <div class="card__details">
+            <div class="card__dates">
+              <div class="card__date-deadline">
+                <p class="card__input-deadline-wrap">
+                  <span class="card__date">23 September</span>
+                  <span class="card__time">16:15</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</article>
-`);
-};
+  </article>`;
 
-const createTaskEditTemplate = () => {
-  return (`
-  <article class="card card--edit card--yellow card--repeat">
+const createTaskEditTemplate = () =>
+  `<article class="card card--edit card--yellow card--repeat">
   <form class="card__form" method="get">
     <div class="card__inner">
       <div class="card__color-bar">
@@ -202,15 +190,10 @@ const createTaskEditTemplate = () => {
       </div>
     </div>
   </form>
-</article>
-  `);
-};
+</article>`;
 
-const createLoadMoreTemplate = () => {
-  return (`
-    <button class="load-more" type="button">load more</button>
-  `);
-};
+const createLoadMoreTemplate = () =>
+  `<button class="load-more" type="button">load more</button>`;
 
 const render = (container, template, place = `beforeend`) => {
   container.insertAdjacentHTML(place, template);
