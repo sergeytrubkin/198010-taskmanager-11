@@ -64,7 +64,7 @@ const createBoardTemplate = () => {
     <div class="board__tasks"></div>
   </section>`
   );
-}
+};
 
 const createTaskTemplate = () => {
   return (`<article class="card card--black">
@@ -212,22 +212,24 @@ const createLoadMoreTemplate = () => {
   `);
 };
 
-const render = (container, template, place = 'beforeend') => {
+const render = (container, template, place = `beforeend`) => {
   container.insertAdjacentHTML(place, template);
 };
 
-const siteMainElement = document.querySelector('.main');
-const siteHeaderElement = siteMainElement.querySelector('.main__control');
+const siteMainElement = document.querySelector(`.main`);
+const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
 
 render(siteHeaderElement, createSiteMenuTemplate());
 render(siteMainElement, createSiteFilterTemplate());
 render(siteMainElement, createBoardTemplate());
 
-const boardElement = document.querySelector('.board');
-const taskListElement = boardElement.querySelector('.board__tasks');
+const boardElement = document.querySelector(`.board`);
+const taskListElement = boardElement.querySelector(`.board__tasks`);
 
 render(taskListElement, createTaskEditTemplate());
+
 for (let i = 0; i < TASK_COUNT; i++) {
   render(taskListElement, createTaskTemplate());
 }
+
 render(boardElement, createLoadMoreTemplate());
