@@ -2,15 +2,6 @@
 .DS_Store
 Thumbs.db
 
-<<<<<<< HEAD
-*.png binary
-*.jpg binary
-*.jpeg binary
-*.webp binary
-*.woff binary
-*.woff2 binary
-node_modules
-=======
 # Файлы редактора
 .idea
 *.sublime*
@@ -21,4 +12,5 @@ node_modules
 node_modules/
 
 # Файлы сборки (допишите самостоятельно)
->>>>>>> 4458ac984f26d760d0ff3d89fdf682e07c361c5a
+public/bundle.js
+public/bundle.js.map
