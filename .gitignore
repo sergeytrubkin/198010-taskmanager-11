@@ -1,5 +1,8 @@
-* text eol=lf
+# Файлы и папки операционной системы
+.DS_Store
+Thumbs.db
 
+<<<<<<< HEAD
 *.png binary
 *.jpg binary
 *.jpeg binary
@@ -7,3 +10,15 @@
 *.woff binary
 *.woff2 binary
 node_modules
+=======
+# Файлы редактора
+.idea
+*.sublime*
+.vscode
+
+# Вспомогательные файлы
+*.log*
+node_modules/
+
+# Файлы сборки (допишите самостоятельно)
+>>>>>>> 4458ac984f26d760d0ff3d89fdf682e07c361c5a
