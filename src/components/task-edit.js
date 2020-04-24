@@ -103,7 +103,7 @@ const createTaskEditTemplate = (task) => {
 export default class TaskEdit {
   constructor(task) {
     this._task = task;
-    this._element = element;
+    this._element = null;
   }
 
   getTempate() {
