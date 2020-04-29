@@ -42,7 +42,7 @@ const generateTask = () => {
     description: getRandomArrayItem(DescriptionItems),
     dueDate: getRandomDate(),
     repeatingDays: Object.assign({}, DefaultRepeatingDays, {'mo': Math.random() > 0.5}),
-    isArchive: true,
+    isArchive: false,
     isFavorite: false,
   };
 };
