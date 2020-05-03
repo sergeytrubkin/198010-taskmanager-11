@@ -9,7 +9,7 @@ import TaskEditComponent from './components/task-edit.js';
 import NoTasksComponent from './components/no-tasks.js';
 import {generateFilters} from './mock/filter.js';
 import {generateTasks} from './mock/task.js';
-import {render} from './utils/render.js';
+import {render, replace} from './utils/render.js';
 
 const TASK_COUNT = 40;
 const SHOWING_TASKS_COUNT_ON_START = 8;
@@ -17,11 +17,11 @@ const SHOWING_TASKS_COUNT_BY_BUTTON = 8;
 
 const renderTask = (taskListElement, task) => {
   const replaceTaskToEdit = () => {
-    taskListElement.replaceChild(taskEditComponent.getElement(), taskComponent.getElement());
+    replace(taskListElement, taskEditComponent.getElement(), taskComponent.getElement());
   };
 
   const replaceEditToTask = () => {
-    taskListElement.replaceChild(taskComponent.getElement(), taskEditComponent.getElement());
+    replace(taskListElement, taskComponent.getElement(), taskEditComponent.getElement());
   };
 
   const onEscKeyDown = (evt) => {

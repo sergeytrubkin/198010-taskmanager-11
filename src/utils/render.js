@@ -21,4 +21,8 @@ const render = (container, element, place = RenderPosition.BEFOREEND) => {
   }
 };
 
-export {RenderPosition, createElement, render};
+const replace = (parent, newElement, oldElement) => {
+  parent.replaceChild(newElement, oldElement);
+};
+
+export {RenderPosition, createElement, render, replace};
