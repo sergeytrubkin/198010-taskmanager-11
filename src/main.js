@@ -49,7 +49,7 @@ const renderTask = (taskListElement, task) => {
     document.removeEventListener(`keydown`, onEscKeyDown);
   });
 
-  render(taskListElement, taskComponent.getElement());
+  render(taskListElement, taskComponent);
 };
 
 const renderBoard = (boardComponent, tasks) => {
@@ -57,13 +57,13 @@ const renderBoard = (boardComponent, tasks) => {
   const isAllTasksArchived = tasks.every((task) => task.isArchive);
 
   if (isAllTasksArchived) {
-    render(boardComponent.getElement(), new NoTasksComponent().getElement());
+    render(boardComponent.getElement(), new NoTasksComponent());
 
     return;
   }
 
-  render(boardComponent.getElement(), new SortComponent().getElement());
-  render(boardComponent.getElement(), new TasksComponent().getElement());
+  render(boardComponent.getElement(), new SortComponent());
+  render(boardComponent.getElement(), new TasksComponent());
 
   const taskListElement = boardComponent.getElement().querySelector(`.board__tasks`);
 
@@ -74,7 +74,7 @@ const renderBoard = (boardComponent, tasks) => {
     });
 
   const loadMoreButtonComponent = new LoadMoreButtonComponent();
-  render(boardComponent.getElement(), loadMoreButtonComponent.getElement());
+  render(boardComponent.getElement(), loadMoreButtonComponent);
 
   loadMoreButtonComponent.getElement().addEventListener(`click`, () => {
     const currentTasksCount = showingTasksCount;
@@ -98,10 +98,10 @@ const tasks = generateTasks(TASK_COUNT);
 const siteMainElement = document.querySelector(`.main`);
 const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
 
-render(siteHeaderElement, new SiteMenuComponent().getElement());
-render(siteMainElement, new FilterComponent(filters).getElement());
+render(siteHeaderElement, new SiteMenuComponent());
+render(siteMainElement, new FilterComponent(filters));
 
 const boardComponent = new BoardComponent();
 
-render(siteMainElement, boardComponent.getElement());
+render(siteMainElement, boardComponent);
 renderBoard(boardComponent, tasks);
