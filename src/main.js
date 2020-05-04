@@ -76,7 +76,7 @@ const renderBoard = (boardComponent, tasks) => {
   const loadMoreButtonComponent = new LoadMoreButtonComponent();
   render(boardComponent.getElement(), loadMoreButtonComponent);
 
-  loadMoreButtonComponent.getElement().addEventListener(`click`, () => {
+  loadMoreButtonComponent.setClickHandler(() => {
     const currentTasksCount = showingTasksCount;
 
     showingTasksCount += SHOWING_TASKS_COUNT_BY_BUTTON;
