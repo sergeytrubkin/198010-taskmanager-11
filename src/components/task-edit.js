@@ -1,23 +1,24 @@
+import AbstractComponent from '../components/abstract-component.js';
 import {COLORS, DAYS, MONTH_NAMES} from '../const.js';
-import {createElement, formatTime} from '../utils.js';
+import {formatTime} from '../utils/common.js';
 
 const createRepeatingDaysMarkup = (days, repeatingDays) => {
   return days
-    .map((day) => {
+    .map((day, index) => {
       const isChecked = repeatingDays[day];
-      return `<input class="visually-hidden card__repeat-day-input" type="checkbox" id="repeat-${day}-4" name="repeat" value="${day}" ${isChecked ? `checked` : ``} />
-        <label class="card__repeat-day" for="repeat-${day}-4">${day}</label>`;
+      return `<input class="visually-hidden card__repeat-day-input" type="checkbox" id="repeat-${day}-${index}" name="repeat" value="${day}" ${isChecked ? `checked` : ``} />
+        <label class="card__repeat-day" for="repeat-${day}-${index}">${day}</label>`;
     })
     .join(`\n`);
 };
 
 const createColorsMarkup = (colors, currentColor) => {
   return colors
-    .map((color) => {
+    .map((color, index) => {
       return (`
-        <input type="radio" id="color-${color}-4" class="card__color-input card__color-input--${color} visually-hidden"
+        <input type="radio" id="color-${color}-${index}" class="card__color-input card__color-input--${color} visually-hidden"
           name="color" value="${color}" ${color === currentColor ? `checked` : ``}/>
-        <label for="color-${color}-4" class="card__color card__color--${color}">${color}</label>`);
+        <label for="color-${color}-${index}" class="card__color card__color--${color}">${color}</label>`);
     })
     .join(`\n`);
 };
@@ -97,25 +98,18 @@ const createTaskEditTemplate = (task) => {
   </article>`);
 };
 
-export default class TaskEdit {
+export default class TaskEdit extends AbstractComponent {
   constructor(task) {
+    super();
+
     this._task = task;
-    this._element = null;
   }
 
   getTemplate() {
     return createTaskEditTemplate(this._task);
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
+  setSubmitHandler(handler) {
+    this.getElement().querySelector(`form`).addEventListener(`submit`, handler);
   }
 }
