@@ -1,4 +1,4 @@
-import SortComponent from '../components/sorting.js';
+import SortComponent from '../components/sort.js';
 import TaskComponent from '../components/task.js';
 import TasksComponent from '../components/tasks.js';
 import TaskEditComponent from '../components/task-edit.js';
