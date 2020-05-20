@@ -2,6 +2,7 @@ import AbstractComponent from '../components/abstract-component.js';
 import {formatTime, formatDate} from '../utils/common.js';
 
 const createButtonMarkup = (name, isActive = true) => {
+
   const currentButtonActive = isActive ? `` : `card__btn--disabled`;
   return (
     `<button type="button" class="card__btn card__btn--${name} ${currentButtonActive}">
